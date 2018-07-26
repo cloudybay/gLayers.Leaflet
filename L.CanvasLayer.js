@@ -123,6 +123,9 @@ L.CanvasLayer = (L.Layer ? L.Layer : L.Class).extend({
         map._panes.overlayPane.appendChild(this._canvas1);
         map._panes.overlayPane.appendChild(this._canvas2);
 
+        var topLeft = this._map.containerPointToLayerPoint([0, 0]);
+        L.DomUtil.setPosition(this._canvas, topLeft);
+
         map.on(this.getEvents(),this);
 
         var del = this._delegate || this;
@@ -139,7 +142,8 @@ L.CanvasLayer = (L.Layer ? L.Layer : L.Class).extend({
             L.Util.cancelAnimFrame(this._frame);
         }
 
-        map.getPanes().overlayPane.removeChild(this._canvas);
+        map.getPanes().overlayPane.removeChild(this._canvas1);
+        map.getPanes().overlayPane.removeChild(this._canvas2);
 
         map.off(this.getEvents(),this);
 
