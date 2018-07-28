@@ -89,22 +89,22 @@ L.CanvasLayer = (L.Layer ? L.Layer : L.Class).extend({
         L.DomUtil.addClass(go_hide_canvas, 'leaflet-layer-hide');
     },
     _onLayerDidZoom: function () {
-        if (this._canvas == this._canvas2) {
-            this._canvas = this._canvas1;
-            L.DomUtil.removeClass(this._canvas1, 'leaflet-layer-hide');
-            go_hide_canvas = this._canvas2;
-        }
-        else {
-            this._canvas = this._canvas2;
-            L.DomUtil.removeClass(this._canvas2, 'leaflet-layer-hide');
-            go_hide_canvas = this._canvas1;
-        }
-        var topLeft = this._map.containerPointToLayerPoint([0, 0]);
-        L.DomUtil.setPosition(this._canvas, topLeft);
-        this.drawLayer();
+        // if (this._canvas == this._canvas2) {
+        //     this._canvas = this._canvas1;
+        //     L.DomUtil.removeClass(this._canvas1, 'leaflet-layer-hide');
+        //     go_hide_canvas = this._canvas2;
+        // }
+        // else {
+        //     this._canvas = this._canvas2;
+        //     L.DomUtil.removeClass(this._canvas2, 'leaflet-layer-hide');
+        //     go_hide_canvas = this._canvas1;
+        // }
+        // var topLeft = this._map.containerPointToLayerPoint([0, 0]);
+        // L.DomUtil.setPosition(this._canvas, topLeft);
+        // this.drawLayer();
 
-        go_hide_canvas.getContext('2d').clearRect(0, 0, 3000, 3000);
-        L.DomUtil.addClass(go_hide_canvas, 'leaflet-layer-hide');
+        // go_hide_canvas.getContext('2d').clearRect(0, 0, 3000, 3000);
+        // L.DomUtil.addClass(go_hide_canvas, 'leaflet-layer-hide');
     },
     //-------------------------------------------------------------
     getEvents: function () {
